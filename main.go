@@ -1,12 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	var valid = make([]string, 1)
+	argsWithoutProg := os.Args[1:]
+
+	var valid = make([]string, 2)
 	valid[0] = "4533"
 	valid[1] = "1234"
-	fmt.Println(checkPin(valid, "4#5534"))
+	fmt.Println(checkPin(valid, argsWithoutProg[0]))
 }
 
 func checkPin(validPins []string, rawPin string) bool {
